@@ -14,41 +14,41 @@ IF OBJECT_ID ('dim_Account', 'U') IS NOT NULL
 	DROP TABLE dim_Account;
 CREATE TABLE dim_Account(
 	AccountKey					INT,
-	AccountID					INT,
+	AccountID					NVARCHAR(250),
 	CustomerKey					INT,
-	AccountType					VARCHAR(50),
-	AccountStatus				VARCHAR(50),
+	AccountType					VARCHAR(250),
+	AccountStatus				VARCHAR(250),
 	OpenDate					DATE,
-	CreditLimit					DECIMAL(10,2),
-	InterestRate				DECIMAL(2,2)
+	CreditLimit					NVARCHAR(250),
+	InterestRate				NVARCHAR(250)
 );
 
 IF OBJECT_ID ('dim_branch', 'U') IS NOT NULL
 	DROP TABLE dim_branch;
 CREATE TABLE dim_branch(
 	BranchKey					 INT,
-	BranchID					 NVARCHAR(50),
-	BranchName					 NVARCHAR(50),
-	City						 NVARCHAR(50),
-	State						 NVARCHAR(50),
-	Region						 NVARCHAR(50),
-	BranchType					 NVARCHAR(50)
+	BranchID					 NVARCHAR(250),
+	BranchName					 NVARCHAR(250),
+	City						 NVARCHAR(250),
+	State						 NVARCHAR(250),
+	Region						 NVARCHAR(250),
+	BranchType					 NVARCHAR(250)
 );
 
 IF OBJECT_ID ('dim_customer', 'U') IS NOT NULL
 	DROP TABLE dim_customer;
 CREATE TABLE dim_customer(
 	CustomerKey					INT,
-	CustomerID					NVARCHAR(50),
-	FirstName					NVARCHAR(50),
-	LastName					NVARCHAR(50),
-	Gender						NVARCHAR(50),
+	CustomerID					NVARCHAR(250),
+	FirstName					NVARCHAR(250),
+	LastName					NVARCHAR(250),
+	Gender						NVARCHAR(250),
 	DateOfBirth					DATE,
-	City						NVARCHAR(50),
-	State						NVARCHAR(50),
-	Occupation					NVARCHAR(50),
-	CustomerSegment				NVARCHAR(50),
-	AnnualIncome				DECIMAL(10, 2),
+	City						NVARCHAR(250),
+	State						NVARCHAR(250),
+	Occupation					NVARCHAR(250),
+	CustomerSegment				NVARCHAR(250),
+	AnnualIncome				NVARCHAR(250),
 	CustomerSince				DATE
 );
 
@@ -59,12 +59,12 @@ CREATE TABLE dim_date(
 	Date						DATE,
 	Day							INT,
 	Month						INT,
-	MonthName					NVARCHAR(50),
-	Quarter						NVARCHAR(50),
+	MonthName					NVARCHAR(250),
+	Quarter						NVARCHAR(250),
 	Year						INT,
 	WeekNumber					INT,
-	DayName						NVARCHAR(50),
-	IsWeekend					NVARCHAR(50)
+	DayName						NVARCHAR(250),
+	IsWeekend					NVARCHAR(250)
 );
 
 IF OBJECT_ID ('fct_transaction', 'U') IS NOT NULL
@@ -75,12 +75,10 @@ CREATE TABLE fct_transaction(
 	CustomerKey					    INT,
 	AccountKey					    INT,
 	BranchKey					    INT,
-	TransactionID				    NVARCHAR(50),
-	TransactionType				    NVARCHAR(50),
-	TransactionChannel			  	NVARCHAR(50),
-	TransactionAmount			    DECIMAL(10,2),
-	BalanceAfterTransaction			DECIMAl(10,2),
-	TransactionStatus			    NVARCHAR(50)
+	TransactionID				    NVARCHAR(250),
+	TransactionType				    NVARCHAR(250),
+	TransactionChannel			  	NVARCHAR(250),
+	TransactionAmount			    NVARCHAR(250),
+	BalanceAfterTransaction			NVARCHAR(250),
+	TransactionStatus			    NVARCHAR(250)
 );
-
-
